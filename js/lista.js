@@ -127,7 +127,7 @@ const agregarAlCarrito = producto => {
 
 const eliminarDelCarrito = indiceProducto => {
     if ((carrito[indiceProducto][3]) === 1) {
-        (indiceProducto == 0) ? carrito.shift() : console.log(carrito.splice(indiceProducto, 1));
+        (indiceProducto == 0) ? carrito.shift() : carrito.splice(indiceProducto, 1);
     } else {
         carrito[indiceProducto][3] = carrito[indiceProducto][3] - 1
     }

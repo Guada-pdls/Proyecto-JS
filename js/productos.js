@@ -73,6 +73,8 @@ const buscarProducto = (productos) => {
             }
         }
         vaciarContenedor(contenedor)
-        return mostrarProductos(productosEncontrados, contenedor)
+        mostrarProductos(productosEncontrados, contenedor)
+        const botones = document.querySelectorAll(".btn-primary");
+        botonesProductos(botones, productos)
     })
 }
