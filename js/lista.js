@@ -36,7 +36,7 @@ const activarModoOscuro = () => {
 
 const desactivarModoOscuro = () => {
     const body = document.querySelector("body")
-    const botones = document.querySelectorAll(".btn")
+    const botones = document.querySelectorAll(".btn-primary")
     const cards = document.querySelectorAll(".card")
     body.classList.remove("modo-oscuro")
     botones.forEach( boton => { boton.classList.remove("btn-dark") })

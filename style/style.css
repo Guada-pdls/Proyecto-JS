@@ -108,8 +108,8 @@ form{
 .card-carrito{
     min-width: 800px;
 }
-/* .buscador{
-    margin: auto;
+/* #btn-buscar {
+    cursor: pointer;
 } */
 
 /* Media querie xl */

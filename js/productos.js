@@ -1,13 +1,15 @@
 "use strict"
 
 const contenedor = document.querySelector(".productos")
+const buscador = document.querySelector("#buscador")
+const btnBuscar = document.querySelector("#basic-addon1")
 
 fetch('https://fakestoreapi.com/products')
 .then(res => res.json())
 .then(productos => {
     contenedor.removeChild(contenedor.firstChild)
     mostrarProductos(productos, contenedor)
-    const botones = document.querySelectorAll(".btn");
+    const botones = document.querySelectorAll(".btn-primary");
     botonesProductos(botones, productos)
     
     // Filtros
@@ -16,6 +18,7 @@ fetch('https://fakestoreapi.com/products')
     document.querySelector("#womenclothing").addEventListener("click", () => filtros("women's clothing", productos))
     document.querySelector("#jewelery").addEventListener("click", () => filtros("jewelery", productos))
     document.querySelector("#electronics").addEventListener("click", () => filtros("electronics", productos))
+    buscarProducto(productos)
 })
 .catch(error => {
     Swal.fire({
@@ -58,28 +61,18 @@ const botonesProductos = (botones, productos) => {
     }
 }
 
-
-
-
-
-
-
-
-
-
-
-
 //buscar productos
 
-const buscarProducto = () => {
-    const productoABuscar = prompt("Ingrese un producto")
-    let productosEncontrados = []
-    for (const producto of productos) {
-        if ((producto.nombre).includes(productoABuscar)){
-            productosEncontrados.push(producto)
+const buscarProducto = (productos) => {
+    buscador.addEventListener("keyup", () => {
+        const productoABuscar = buscador.value.toLowerCase()
+        let productosEncontrados = []
+        for (const producto of productos) {
+            if ((producto.title.toLowerCase()).includes(productoABuscar)){
+                productosEncontrados.push(producto)
+            }
         }
-    }
-    return productosEncontrados
+        vaciarContenedor(contenedor)
+        return mostrarProductos(productosEncontrados, contenedor)
+    })
 }
-
-// console.table(buscarProducto());
