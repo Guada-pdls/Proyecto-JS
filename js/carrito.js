@@ -22,9 +22,7 @@ function eliminarProductos(boton) {
             botonesCarrito();
             (localStorage.getItem("darkmode") === "true") ? activarModoOscuro() : desactivarModoOscuro();
         }
-    }{
     };
-    
 }
 
 const botonesCarrito = () => {
@@ -34,14 +32,4 @@ const botonesCarrito = () => {
         })
     }
 
-
 botonesCarrito()
-
-const btn = document.querySelector("#delete")
-btn.addEventListener("click", () => {
-    carrito = []
-    localStorage.setItem("carrito", JSON.stringify(carrito))
-    Carrito()
-})
-btn.className = 'btn btn-danger m-5';
-

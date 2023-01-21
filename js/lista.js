@@ -25,7 +25,7 @@ const mostrarProductos = (productos, nodo) => {
 
 const activarModoOscuro = () => {
     const body = document.querySelector("body")
-    const botones = document.querySelectorAll(".btn")
+    const botones = document.querySelectorAll(".btn-primary")
     const cards = document.querySelectorAll(".card")
     const tarjetas = document.querySelectorAll(".tarjeta")
     body.classList.add("modo-oscuro")
@@ -75,12 +75,13 @@ const Carrito = () => {
         contenedor.innerHTML += `
         <div class="d-flex justify-content-between w-100">
             <div class="ms-3">Total: USD ${total}</div>
-            <button" class="btn btn-primary me-3">Comprar</button>
+            <button" class="btn btn-success me-3">Comprar</button>
         </div>
         <button id="delete" class="btn btn-danger m-5 ">Eliminar todo</button>`
+        eliminarTodo()
     } else {
         contenedor.innerHTML = `<p class="p-5">Aún no hay artículos seleccionados</p>
-        <a href="./productos.html" class="btn btn-primary">Volver a la tienda</a>`
+        <a href="./productos.html" class="btn btn-secondary">Volver a la tienda</a>`
     }
 }
 
@@ -107,11 +108,21 @@ const agregarAlCarrito = producto => {
 
 const eliminarDelCarrito = indiceProducto => {
     if ((carrito[indiceProducto][3]) === 1) {
-        (indiceProducto == 0) ? carrito.pop() : carrito = carrito.splice(indiceProducto, 1);
+        (indiceProducto == 0) ? carrito.shift() : console.log(carrito.splice(indiceProducto, 1));
     } else {
         carrito[indiceProducto][3] = carrito[indiceProducto][3] - 1
     }
     localStorage.setItem("carrito", JSON.stringify(carrito)) 
+}
+
+const eliminarTodo = () => {
+    const btn = document.querySelector("#delete")
+    btn.addEventListener("click", () => {
+        carrito = []
+        localStorage.setItem("carrito", JSON.stringify(carrito))
+        Carrito()
+    })
+    btn.className = 'btn btn-danger m-5';
 }
 
 const validarForm = (nam, last, mail, msg)=>{
