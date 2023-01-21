@@ -9,6 +9,13 @@ fetch('https://fakestoreapi.com/products')
     mostrarProductos(productos, contenedor)
     const botones = document.querySelectorAll(".btn");
     botonesProductos(botones, productos)
+    
+    // Filtros
+    
+    document.querySelector("#menclothing").addEventListener("click", () => filtros("men's clothing", productos))
+    document.querySelector("#womenclothing").addEventListener("click", () => filtros("women's clothing", productos))
+    document.querySelector("#jewelery").addEventListener("click", () => filtros("jewelery", productos))
+    document.querySelector("#electronics").addEventListener("click", () => filtros("electronics", productos))
 })
 .catch(error => {
     Swal.fire({

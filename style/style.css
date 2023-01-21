@@ -108,6 +108,9 @@ form{
 .card-carrito{
     min-width: 800px;
 }
+/* .buscador{
+    margin: auto;
+} */
 
 /* Media querie xl */
 @media screen and (max-width: 1200px){

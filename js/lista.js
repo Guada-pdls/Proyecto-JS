@@ -43,8 +43,27 @@ const desactivarModoOscuro = () => {
     cards.forEach( card => { card.classList.remove("dark-card") })
 };
 
+const vaciarContenedor = contenedor => {
+    if (contenedor.hasChildNodes()){
+        while (contenedor.childNodes.length >= 1){
+            contenedor.removeChild(contenedor.firstChild)
+        }
+    }
+}
+
 let carrito;
 (localStorage.getItem("carrito") === null) ? carrito = [] : carrito = JSON.parse(localStorage.getItem("carrito"));
+
+const filtros = (filtroElegido, productos) => {
+    let coincidencias = [];
+    for (let producto of productos) {
+        if (producto.category === filtroElegido) {
+            coincidencias.push(producto)
+        }
+    }
+    vaciarContenedor(contenedor)
+    mostrarProductos(coincidencias, contenedor)
+}
 
 const Carrito = () => {
     carrito = JSON.parse(localStorage.getItem("carrito"))

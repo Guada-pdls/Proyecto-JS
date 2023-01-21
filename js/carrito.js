@@ -10,13 +10,9 @@ function eliminarProductos(boton) {
         let productoId = boton.id.slice(9)
         if (parseInt(productoId) === producto[2]){
             let indice = carrito.findLastIndex(product => product[2] === parseInt(productoId))
-            eliminarDelCarrito(indice)
+            eliminarDelCarrito(indice);
             
-            if (contenedor.hasChildNodes()){
-                while (contenedor.childNodes.length >= 1){
-                    contenedor.removeChild(contenedor.firstChild)
-                }
-            }
+            vaciarContenedor(contenedor);
             Carrito();
             botones = document.querySelectorAll(".btn");
             botonesCarrito();
