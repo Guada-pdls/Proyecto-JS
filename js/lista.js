@@ -11,7 +11,7 @@ const mostrarProductos = (productos, nodo) => {
         <div class="card-right">
             <div class="d-flex top-card justify-content-between">
                 <h5 class="title">${producto.title}</h5>
-                <p class="ps-3 pe-2">USD ${producto.price}</p>
+                <p class="ps-3 pe-2 precio">USD ${producto.price}</p>
             </div>
             <p class="descrip">${producto.description}</p>
             <div class="d-flex justify-content-end align-items-baseline botones pe-4">

@@ -108,9 +108,6 @@ form{
 .card-carrito{
     min-width: 800px;
 }
-/* #btn-buscar {
-    cursor: pointer;
-} */
 
 /* Media querie xl */
 @media screen and (max-width: 1200px){
@@ -159,7 +156,7 @@ form{
         min-width: 400px;
     }
     .tarjeta{
-        width: 70vw;
+        width: 72vw;
     }
 }
 
@@ -170,23 +167,40 @@ form{
         padding: 1rem !important;
     }
     .title{
-        font-size: 1.2rem
+        font-size: 1rem
     }
-    input{
+    .precio {
+        font-size: 0.9rem;
+    }
+    /* input{
         font-size: 0.9rem !important;
-    }
+    } */
     .card-carrito{
         min-width: 200px;
     }
     .tarjeta{
-        width: 94vw;
+        width: 98vw;
     }
     .img{
-        width: 130px;
+        width: 110px;
         height: 250px;
     }
     .img img{
-        width: 130px;
+        width: 110px;
+    }
+    .descrip{
+        font-size: 0.9rem;
+    }
+    .botones{
+        display: flex;
+        flex-direction: column;
+    }
+    .botones button{
+        width: 100%;
+        margin: 2px !important;
+    }
+    .title{
+        max-height: 100px;
     }
 }
 
