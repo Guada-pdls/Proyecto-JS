@@ -37,8 +37,8 @@ fetch('https://fakestoreapi.com/products')
       }
 );
 
-
 (localStorage.getItem("darkmode") === "true") ? activarModoOscuro() : desactivarModoOscuro()
+
 const botonesProductos = (botones, productos) => {
     for (let boton of botones) {
         boton.addEventListener("click", (e)=>{
