@@ -66,7 +66,7 @@ const filtros = (filtroElegido, productos) => {
 }
 
 const Carrito = () => {
-    carrito = (localStorage.getItem("carrito") == null) ? [] : JSON.parse(localStorage.getItem("carrito"));
+    (localStorage.getItem("carrito") == null) ? carrito = [] : carrito = JSON.parse(localStorage.getItem("carrito"));
     if (carrito.length !== 0) {
         for (let producto of carrito) {
             const cardCarrito = document.createElement("div")
