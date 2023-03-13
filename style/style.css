@@ -172,9 +172,6 @@ form{
     .precio {
         font-size: 0.9rem;
     }
-    /* input{
-        font-size: 0.9rem !important;
-    } */
     .card-carrito{
         min-width: 200px;
     }
@@ -214,7 +211,7 @@ form{
   .swiper-slide {
     text-align: center;
     font-size: 18px;
-    background: #fff;
+    background: #6666663c;
 
     /* Center slide text vertically */
     display: -webkit-box;
@@ -237,6 +234,9 @@ form{
     height: 100%;
     object-fit: cover;
   }
+picture{
+    height: 500px;
+}
 
 /* Loader */
 .loader {

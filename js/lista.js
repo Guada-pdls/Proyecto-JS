@@ -51,7 +51,7 @@ const vaciarContenedor = contenedor => {
     }
 }
 
-let carrito;
+let carrito = [];
 (localStorage.getItem("carrito") == null) ? carrito = [] : carrito = JSON.parse(localStorage.getItem("carrito"));
 
 const filtros = (filtroElegido, productos) => {
@@ -105,6 +105,7 @@ const Carrito = () => {
 }
 
 const agregarAlCarrito = producto => {
+    (localStorage.getItem("carrito") == null) ? carrito = [] : carrito = JSON.parse(localStorage.getItem("carrito"));
 
     if (carrito){
         for (let produ of carrito) {
