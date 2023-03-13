@@ -52,7 +52,7 @@ const vaciarContenedor = contenedor => {
 }
 
 let carrito;
-(localStorage.getItem("carrito") === "null") ? carrito = [] : carrito = JSON.parse(localStorage.getItem("carrito"));
+(localStorage.getItem("carrito") == null) ? carrito = [] : carrito = JSON.parse(localStorage.getItem("carrito"));
 
 const filtros = (filtroElegido, productos) => {
     let coincidencias = [];
