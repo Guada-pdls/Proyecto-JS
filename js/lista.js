@@ -52,7 +52,7 @@ const vaciarContenedor = contenedor => {
 }
 
 let carrito = [];
-(localStorage.getItem("carrito") == null) ? carrito = [] : carrito = JSON.parse(localStorage.getItem("carrito"));
+(localStorage.getItem("carrito") == "null") ? carrito = [] : carrito = JSON.parse(localStorage.getItem("carrito"));
 
 const filtros = (filtroElegido, productos) => {
     let coincidencias = [];
@@ -63,10 +63,12 @@ const filtros = (filtroElegido, productos) => {
     }
     vaciarContenedor(contenedor)
     mostrarProductos(coincidencias, contenedor)
+    let botones = document.querySelectorAll(".btn-primary");
+    botonesProductos(botones, productos)
 }
 
 const Carrito = () => {
-    (localStorage.getItem("carrito") == null) ? carrito = [] : carrito = JSON.parse(localStorage.getItem("carrito"));
+    (localStorage.getItem("carrito") == "null") ? carrito = [] : carrito = JSON.parse(localStorage.getItem("carrito"));
     if (carrito.length !== 0) {
         for (let producto of carrito) {
             const cardCarrito = document.createElement("div")
@@ -105,7 +107,7 @@ const Carrito = () => {
 }
 
 const agregarAlCarrito = producto => {
-    (localStorage.getItem("carrito") == null) ? carrito = [] : carrito = JSON.parse(localStorage.getItem("carrito"));
+    (localStorage.getItem("carrito") == "null") ? carrito = [] : carrito = JSON.parse(localStorage.getItem("carrito"));
 
     if (carrito){
         for (let produ of carrito) {

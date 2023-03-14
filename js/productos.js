@@ -9,6 +9,8 @@ fetch("https://fakestoreapi.com/products")
   .then((productos) => {
     contenedor.removeChild(contenedor.firstChild);
     mostrarProductos(productos, contenedor);
+    let botones = document.querySelectorAll(".btn-primary");
+    botonesProductos(botones, productos)
 
     // Filtros
 
@@ -48,7 +50,7 @@ localStorage.getItem("darkmode") === "true"
 
 const botonesProductos = (botones, productos) => {
   for (let boton of botones) {
-    boton.addEventListener("click", (e) => {
+    boton.addEventListener("click", () => {
       productos.forEach((producto) => {
         if (producto.id === parseInt(boton.id)) {
           agregarAlCarrito(producto);
@@ -70,7 +72,7 @@ const botonesProductos = (botones, productos) => {
 
 //buscar productos
 
-const buscarProducto = (productos) => {
+const buscarProducto = productos => {
   buscador.addEventListener("keyup", () => {
     const productoABuscar = buscador.value.toLowerCase();
     let productosEncontrados = [];
