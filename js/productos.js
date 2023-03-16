@@ -10,7 +10,7 @@ fetch("https://fakestoreapi.com/products")
     contenedor.removeChild(contenedor.firstChild);
     mostrarProductos(productos, contenedor);
     let botones = document.querySelectorAll(".btn-primary");
-    botonesProductos(botones, productos)
+    botonesProductos(botones, productos);
 
     // Filtros
 
@@ -49,30 +49,38 @@ localStorage.getItem("darkmode") === "true"
   : desactivarModoOscuro();
 
 const botonesProductos = (botones, productos) => {
-  for (let boton of botones) {
-    boton.addEventListener("click", () => {
-      productos.forEach((producto) => {
-        if (producto.id === parseInt(boton.id)) {
-          agregarAlCarrito(producto);
-          Toastify({
-            text: "Agregado correctamente ✅",
-            duration: 3000,
-            gravity: "top",
-            position: "right",
-            stopOnFocus: true,
-            style: {
-              background: "#0d6efd",
-            },
-          }).showToast();
-        }
+    for (let boton of botones) {
+        if (boton.id.length > 7) {
+            
+                    // Comprar
+
+            const id = boton.id.slice(8)
+            boton.addEventListener("click", () => {
+                productos.forEach(producto =>{
+                    if (producto.id === parseInt(id)) {
+                        comprar(producto)
+                    }
+                })
+            })
+        } else {
+
+            // Agregar al carrito
+    
+        boton.addEventListener("click", () => {
+          productos.forEach((producto) => {
+            if (producto.id === parseInt(boton.id)) {
+              agregarAlCarrito(producto);
+              mensajeAgregar();
+                }    
+            })
       });
-    });
+    };
   }
 };
 
 //buscar productos
 
-const buscarProducto = productos => {
+const buscarProducto = (productos) => {
   buscador.addEventListener("keyup", () => {
     const productoABuscar = buscador.value.toLowerCase();
     let productosEncontrados = [];
