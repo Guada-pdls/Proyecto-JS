@@ -73,7 +73,7 @@ const comprar = (productos) => {
   const formCard = document.createElement("section");
   formCard.className = "d-flex flex-column";
   formCard.innerHTML = `
-        <div class="d-flex justify-content-between w-100">
+        <div class="d-flex justify-content-between w-100 container-comprar">
             <div class="d-flex justify-content-center w-100">
                 <div class="d-flex flex-column mx-5 w-50 align-items-center">
                     <form action="" id="form-card" class="d-flex flex-column">

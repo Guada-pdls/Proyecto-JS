@@ -197,6 +197,9 @@ form {
   .tarjeta {
     width: 72vw;
   }
+  .container-comprar{
+    flex-direction: column;
+  }
 }
 
 /* Media querie sm */
