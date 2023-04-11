@@ -355,11 +355,7 @@ const agregarAlCarrito = (producto) => {
 };
 
 const eliminarDelCarrito = (indiceProducto) => {
-  if (carrito[indiceProducto][3] === 1) {
-    indiceProducto == 0 ? carrito.shift() : carrito.splice(indiceProducto, 1);
-  } else {
-    carrito[indiceProducto][3] = carrito[indiceProducto][3] - 1;
-  }
+  (carrito[indiceProducto][3] === 1) ? indiceProducto == 0 ? carrito.shift() : carrito.splice(indiceProducto, 1) : carrito[indiceProducto][3] = carrito[indiceProducto][3] - 1;
   localStorage.setItem("carrito", JSON.stringify(carrito));
 };
 
@@ -375,20 +371,17 @@ const eliminarTodo = () => {
 
 const validarForm = (nam, last, mail, msg) => {
   let error = [];
+  error[0] = true;
   if (nam.value.length < 4) {
-    error[0] = true;
     error[1] = "El nombre no puede contener menos de 4 caracteres";
     return error;
   } else if (nam.value.length > 40 || last.value.length > 40) {
-    error[0] = true;
     error[1] = "El nombre no puede contener mas de 40 caracteres";
     return error;
   } else if (last.value.length < 3) {
-    error[0] = true;
     error[1] = "El apellido no puede contener menos de 3 caracteres";
     return error;
   } else if (last.value.length > 40) {
-    error[0] = true;
     error[1] = "El apellido no puede contener mas de 40 caracteres";
     return error;
   } else if (
@@ -397,11 +390,9 @@ const validarForm = (nam, last, mail, msg) => {
     mail.value.indexOf("@") == -1 ||
     mail.value.indexOf(".") == -1
   ) {
-    error[0] = true;
     error[1] = "El correo es inválido";
     return error;
   } else if (msg.value.length < 4) {
-    error[0] = true;
     error[1] = "El mensaje no puede contener menos de 4 caracteres";
     return error;
   }

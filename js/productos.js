@@ -6,7 +6,7 @@ const btnBuscar = document.querySelector("#basic-addon1");
 
 fetch("https://fakestoreapi.com/products")
   .then((res) => res.json())
-  .then((productos) => {
+  .then(productos => {
     contenedor.removeChild(contenedor.firstChild);
     mostrarProductos(productos, contenedor);
     let botones = document.querySelectorAll(".btn-primary");
